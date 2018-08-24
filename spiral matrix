@@ -1,0 +1,61 @@
+/* n*n in matrix in spiral order*/
+package com.company;
+import java.util.*;
+public class spiral {
+
+    public static void main(String args[])
+        {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter the number of elements : ");
+            int n = sc.nextInt();
+
+            int a[][] = new int[n][n];
+            int k=1, col1=0, col2=n-1, row1=0, row2=n-1;
+
+            while(k<=n*n)
+            {
+                for(int i=col1;i<=col2;i++)//col plus
+                {
+                    a[row1][i]=k++;
+                }
+
+                for(int j=row1+1;j<=row2;j++)//row plus
+                {
+                    a[j][col2]=k++;
+                }
+
+                for(int i=col2-1;i>=col1;i--)//col minus
+                {
+                    a[row2][i]=k++;
+                }
+
+                for(int j=row2-1;j>=row1+1;j--)//row minus
+                {
+                    a[j][col1]=k++;
+                }
+
+                col1++;
+                row1++;
+                col2--;
+                row2--;
+            }
+
+
+            System.out.println("The spiral matrix is:");
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    System.out.print(a[i][j]+ "\t");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+/*output:
+1	2	3	4	5	
+16	17	18	19	6	
+15	24	25	20	7	
+14	23	22	21	8	
+13	12	11	10	9	*/
