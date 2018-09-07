@@ -1,0 +1,15 @@
+public class StringSwap {
+    public static void main(String args[])
+    {
+        String a = "Ravi";
+        String b = "sankar";
+        System.out.println(a +"-"+ b);
+        a = a + b;//Ravisankar
+        b = a.substring(0,a.length()-b.length());//Ravi//length=4
+        //Ravi-sankar-
+        //0123 456789
+        //starts at index 4 and ends at index < 10 
+        a = a.substring(b.length(),a.length());
+        System.out.println(a +"-"+ b);
+    }
+}
