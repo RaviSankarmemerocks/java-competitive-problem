@@ -1,0 +1,55 @@
+package com.company;
+/* 
+ 
+------------------------------------------------------------------------------------------------------------------------
+author Ravisankar
+------------------------------------------------------------------------------------------------------------------------
+
+*/
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+ public class Lychrel{
+     static int mit=25;
+     public static void main(String agrgs[]) {
+         Scanner sc = new Scanner(System.in);
+         int number = sc.nextInt();
+         for (int i = 1; i <= number; i++) {
+             //lyornt(i);
+             if(lyornt(i)){
+                 System.out.println(i);
+             }
+         }
+     }
+
+     private static boolean lyornt(long number) {
+         for(int i=1;i<=mit;i++){
+             number=number+rev(number);
+             if(palindrome(number)){
+                 return false;
+
+             }
+         }
+     return true;
+     }
+
+     private static boolean palindrome(long number) {
+         if(number==rev(number)){
+             return true;
+         }else{
+             return false;
+         }
+     }
+
+     private static long rev(long number) {
+         long num=0;
+         while(number>0){
+           long a=number%10;
+           num=(num*10)+a;
+           number=number/10;
+
+         }
+         return num;
+     }
+ }
