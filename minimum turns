@@ -1,0 +1,32 @@
+package com.company;
+import java.util.Scanner;
+public class minimumturns {
+    public  static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        int test_case=sc.nextInt();
+        int []nxm=new int[100];//[1 10 3 4]
+        for(int i=0;i<(test_case*2);i++){
+            nxm[i]=sc.nextInt();
+        }
+        for(int i=0;i<(test_case*2);i++){
+            int count=0;
+            if(nxm[i]==1||nxm[i+1]==1){
+                count=0;
+            }else{
+                for(int j=0;j<nxm[i];j++){
+
+                    if(j==0||j==nxm[i]-1){
+                        count=count+1;
+                    }else{
+                        count=count+2;
+                    }
+                }
+
+            }
+            System.out.println(count);
+            i=i+1;
+        }
+
+    }
+
+}
